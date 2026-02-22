@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    username: admin
+    password: password
+    database-platform: org.hibernate.dialect.H2Dialect
+    driverClassName: org.h2.Driver
+    url: "jdbc:h2:file:./TESTDB;MODE=PostgreSQL"
+  jpa.hibernate.ddl-auto: update
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true # to start pagination with 1
+
+server:
+  port: 8081
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: WARN
+  file:
+    path: ./logs
+
+# APPLICATION-LEVEL CONFIGURATIONS
+models:
+  customer:
+    sortable: "id,name"
+  user:
+    sortable: ""
+services:
+  user:
+    url: https://jsonplaceholder.typicode.com

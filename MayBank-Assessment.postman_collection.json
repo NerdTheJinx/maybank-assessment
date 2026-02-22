@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "0b1f3361-562d-46c3-9f43-a64a5192eb31",
+    "name": "MayBank-Assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52586717",
+    "_collection_link": "https://go.postman.co/collection/52586717-0b1f3361-562d-46c3-9f43-a64a5192eb31?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get customers with pagination and sorting",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-TOKEN",
+            "value": "encryptedJSONWebToken",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/customers?sort=name,desc&page=1&size=20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "customers"
+          ],
+          "query": [
+            {
+              "key": "sort",
+              "value": "name,desc"
+            },
+            {
+              "key": "sort",
+              "value": "INVALID,asc",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "size",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Save a new customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-API-TOKEN",
+            "value": "encryptedJSONWebToken",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Harry Hemsworth\",\r\n    \"email\": \"h.hemsworth@example.com\",\r\n    \"mobile\": \"+601234569890\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Fetch users from external service",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-TOKEN",
+            "value": "encryptedJSONWebToken",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/users?page=1&size=20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "size",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update an existing customer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-API-TOKEN",
+            "value": "encryptedJSONWebToken",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"a1437915-d351-413b-96f6-f1c78927fa76\",\r\n    \"name\": \"Jasmine Vi\",\r\n    \"email\": \"jasmine.v@example.com\",\r\n    \"mobile\": \"+601242567990\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/customers/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "customers",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "ef96ecb9-99f5-44b8-b175-f70c70591599"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

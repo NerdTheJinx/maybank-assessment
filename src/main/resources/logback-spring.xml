@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <timestamp key="currentDate" datePattern="yyyy-MM-dd" />
+    <property name="LOG_FILE" value="${LOG_PATH}/app-${currentDate}.log}"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+    <logger name="org.springframework.web" level="WARN"/>
+</configuration>
